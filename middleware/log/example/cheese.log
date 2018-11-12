@@ -1,0 +1,5 @@
+[2018-02-27T21:48:34.695] [ERROR] cheese - Cheese is too ripe!
+[2018-02-27T21:48:34.697] [FATAL] cheese - Cheese was breeding ground for listeria.
+[2018-02-27T21:52:39.660] [INFO] cheese - 响应时间为0.032s
+[2018-02-27T22:00:04.011] [ERROR] cheese - 错误的日志
+[2018-02-27T22:00:04.014] [INFO] cheese - 响应时间为0.025s
