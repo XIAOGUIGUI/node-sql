@@ -4,11 +4,18 @@ const dbConfig = require("../config").development.database
 const userModel = new user(dbConfig);
 const userService = {
   addUser: async(name) => {
-    let result = await userModel.add({name})
-    console.log(result)
-    return {
-      code: 0,
-      msg: ''
+    try {
+      let result = await userModel.add({name})
+      return {
+        code: 0,
+        data: result,
+        msg: ''
+      }
+    } catch (error) {
+      return {
+        code: 1,
+        msg: error.message
+      }
     }
   },
   allUser: async() => {
