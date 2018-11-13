@@ -10,12 +10,24 @@ exports.register = async(ctx) => {
 exports.register.__method__ = 'post'
 
 exports.list = async(ctx) => {
-  let result = await userService.allUser().catch(err => {
+  let data = ctx.request.body
+  let result = await userService.allUser(data).catch(err => {
     ctx.log.error(err.message);
     ctx.throw(500, '服务器内部错误')
   })
   ctx.response.body = result
 }
+exports.list.__method__ = 'post'
+
+exports.info = async(ctx) => {
+  let { id } = ctx.request.body
+  let result = await userService.userInfo(id).catch(err => {
+    ctx.log.error(err.message);
+    ctx.throw(500, '服务器内部错误')
+  })
+  ctx.response.body = result
+}
+exports.info.__method__ = 'post'
 
 exports.update = async(ctx) => {
   let data = ctx.request.body

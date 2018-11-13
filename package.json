@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/XIAOGUIGUI/node-sql#readme",
   "dependencies": {
+    "gitlab": "^4.2.1",
     "ip": "^1.1.5",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",

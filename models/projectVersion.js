@@ -1,22 +1,26 @@
 const { relModel } = require('thinkorm')
 
 module.exports = class extends relModel {
-  init() {
+  init(config) {
+    super.init(config)
     // 模型名称
-    this.modelName = 'Group'
+    this.modelName = 'ProjectVersion'
     // 数据表字段信息
     this.fields = {
       id: {
         type: 'integer',
         pk: true
       },
+      project: {
+        type: 'integer'
+      },
       name: {
         type: 'string',
         defaults: ''
       },
-      type: {
-        type: 'string',
-        defaults: ''
+      state: {
+        type: 'integer',
+        defaults: 0
       }
     }
     // 数据验证

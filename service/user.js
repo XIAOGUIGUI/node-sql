@@ -18,8 +18,22 @@ const userService = {
       }
     }
   },
-  allUser: async() => {
-    let result = await userModel.select()
+  allUser: async(data) => {
+    let result = await userModel.countSelect({
+      num: data.pageSize,
+      page: data.page
+    }, false)
+    console.log(result)
+    return {
+      code: 0,
+      data: result,
+      msg: ''
+    }
+  },
+  userInfo: async(id) => {
+    let result = await userModel.rel(true, {profile: ['test'], pet: ['types']}).where({id}).find().catch(err => {
+      console.log(err)
+    })
     console.log(result)
     return {
       code: 0,

@@ -1,4 +1,8 @@
 const { relModel } = require('thinkorm')
+const Profile = require('./profile.js')
+const Pet = require('./pet.js')
+const Group = require('./group.js')
+const UserGroup = require('./userGroup.js')
 
 module.exports = class extends relModel {
   // 构造方法
@@ -33,21 +37,21 @@ module.exports = class extends relModel {
     // 关联关系
     // 关联关系
     this.relations = {
-      Profile: {
+      profile: {
         type: 'hasone', //关联方式
         model: Profile, //子表模型
-        //field: ['test', 'id'],//关联表字段
+        field: ['test'],//关联表字段
         fkey: 'profile', //主表外键 (子表主键)
         rkey: 'id' //子表主键
       },
-      Pet: {
+      pet: {
         type: 'hasmany',
         model: Pet, //子表模型
-        //field: ['types','user', 'id'],
+        field: ['types', 'id'],
         fkey: '', //hasmany关联此值没用
         rkey: 'user' //子表外键 (主表主键)
       },
-      Group: {
+      group: {
         type: 'manytomany',
         model: Group, //子表模型
         //field: ['name', 'type', 'id'],
