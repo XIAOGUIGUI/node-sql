@@ -2,7 +2,9 @@ const { relModel } = require('thinkorm')
 const Profile = require('./profile.js')
 const Pet = require('./pet.js')
 const Group = require('./group.js')
+const Project = require('./project.js')
 const UserGroup = require('./userGroup.js')
+const UserProject = require('./userProject.js')
 
 module.exports = class extends relModel {
   // 构造方法
@@ -58,6 +60,13 @@ module.exports = class extends relModel {
         fkey: 'userid', //map外键(主表主键)
         rkey: 'groupid', //map外键(子表主键)
         map: UserGroup //map模型
+      },
+      project: {
+        type: 'manytomany',
+        model: Project, //子表模型
+        fkey: 'userid', //map外键(主表主键)
+        rkey: 'projectid', //map外键(子表主键)
+        map: UserProject //map模型
       }
     }
   }
